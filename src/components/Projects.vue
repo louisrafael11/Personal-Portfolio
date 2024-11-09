@@ -3,14 +3,14 @@
     <h1 class="white--text text-center mb-5">Projects</h1>
     <v-row>
       <v-col
-        v-for="project in projects"
+        v-for="(project, index) in projects"
         :key="project.title"
         cols="12"
         md="6"
         lg="4"
         class="project-col"
       >
-        <v-card class="project-card mb-3" elevation="3">
+        <v-card class="project-card mb-3" :id="'project-card-' + index" elevation="3">
           <v-img :src="project.image" height="200px" class="project-image" />
           <v-card-title class="project-title white--text">
             {{ project.title }}
@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import ScrollReveal from 'scrollreveal';
+
 export default {
   name: 'ProjectsPage',
   data() {
@@ -81,12 +83,24 @@ export default {
           title: 'Personal Blog',
           description: 'A simple personal blog to share thoughts and articles.',
           frameworks: ['HTML', 'CSS', 'JavaScript'],
-          deploymentLink: '',
+          deploymentLink: 'https://tailwind-personal-blog.vercel.app/',
           githubLink: 'https://github.com/louisrafael11/Tailwind-Personal-Blog.git',
-          image: require('@/assets/images/profile.jpg'),
+          image: require('@/assets/images/Personal-tw.jpg'),
         },
       ],
     };
+  },
+  mounted() {
+    // Apply ScrollReveal to each project card
+    this.projects.forEach((_, index) => {
+      ScrollReveal().reveal(`#project-card-${index}`, {
+        origin: 'bottom',
+        distance: '50px',
+        duration: 800,
+        delay: index * 100, // Staggered animation for each card
+        reset: true, // Enable if you want to reset on every scroll
+      });
+    });
   },
 };
 </script>
