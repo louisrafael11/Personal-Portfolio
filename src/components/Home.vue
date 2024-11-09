@@ -4,14 +4,16 @@
     <v-avatar size="200px" class="circular-container">
       <v-img src="@/assets/images/profile.jpg" class="circular-image" />
     </v-avatar>
-    
+
     <!-- Introductory Section -->
     <p class="name-text">Louis Rafael E. Quiñones</p>
     <p class="title-text">Information Technology Student</p>
     <p class="description-text">
-      Welcome to my personal portfolio! I’m a passionate IT student at Caraga State University, focused on building web applications, exploring new technologies, and developing creative projects.
+      Welcome to my personal portfolio! I’m a passionate IT student at Caraga State
+      University, focused on building web applications, exploring new technologies, and
+      developing creative projects.
     </p>
-    
+
     <!-- View Work Button -->
     <v-btn color="primary" class="mt-4 view-work-btn" elevation="5" @click="viewWork">
       View My Work
@@ -20,15 +22,56 @@
 </template>
 
 <script>
+import ScrollReveal from "scrollreveal";
+
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   methods: {
     viewWork() {
-      const element = document.getElementById('projects');
+      const element = document.getElementById("projects");
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     },
+  },
+  mounted() {
+    // ScrollReveal for top origin
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    sr.reveal("#home", { delay: 100 });
+    sr.reveal(".projecthead", { delay: 100 });
+    sr.reveal(".contacthead", { delay: 100 });
+    sr.reveal(".contactdiv", { delay: 300 });
+
+    // ScrollReveal for left origin
+    const srLeft = ScrollReveal({
+      origin: "left",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srLeft.reveal(".about1", { delay: 200 });
+    srLeft.reveal(".about3", { delay: 200 });
+
+    // ScrollReveal for right origin
+    const srRight = ScrollReveal({
+      origin: "right",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srRight.reveal(".about2", { delay: 200 });
+    srRight.reveal(".project1", { delay: 400 });
+    srRight.reveal(".project2", { delay: 200 });
+    srRight.reveal(".project3", { delay: 50 });
+    srRight.reveal(".lastpart", { delay: 100 });
   },
 };
 </script>
@@ -68,7 +111,7 @@ export default {
   font-weight: 700;
   margin-top: 15px;
   letter-spacing: 1px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   animation: fadeIn 1s ease-in-out;
 }
 

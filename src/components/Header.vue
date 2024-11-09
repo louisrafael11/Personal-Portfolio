@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app class="bg-black">
-    <v-toolbar-title class="white--text">My Portfolio</v-toolbar-title>
+    <v-toolbar-title class="white--text">Louis.</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn text class="white--text" @click="scrollTo('about')">About Me</v-btn>
     <v-btn text class="white--text" @click="scrollTo('skills')">Skills</v-btn>
@@ -11,12 +11,12 @@
 
 <script>
 export default {
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
   methods: {
     scrollTo(section) {
       const element = document.getElementById(section);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     },
   },
