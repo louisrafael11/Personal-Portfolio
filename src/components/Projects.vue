@@ -81,7 +81,7 @@ export default {
           title: 'Personal Blog',
           description: 'A simple personal blog to share thoughts and articles.',
           frameworks: ['HTML', 'CSS', 'JavaScript'],
-          deploymentLink: 'http://127.0.0.1:5501/index.html#',
+          deploymentLink: 'https://tailwind-personal-blog.vercel.app/#contact',
           githubLink: 'https://github.com/louisrafael11/Tailwind-Personal-Blog.git',
           image: require('@/assets/images/profile.jpg'),
         },
