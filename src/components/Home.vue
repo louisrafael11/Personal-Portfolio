@@ -1,17 +1,19 @@
 <template>
   <v-container id="home" class="my-0 text-center home-container">
-    <v-avatar
-      size="200px"
-      class="circular-container"
-    >
-      <v-img
-        src="@/assets/images/profile.jpg"
-        class="circular-image"
-      />
+    <!-- Avatar Section -->
+    <v-avatar size="200px" class="circular-container">
+      <v-img src="@/assets/images/profile.jpg" class="circular-image" />
     </v-avatar>
+    
+    <!-- Introductory Section -->
     <p class="name-text">Louis Rafael E. Quiñones</p>
-    <p class="title-text">Aspiring Programmer</p>
-    <v-btn color="primary" class="mt-4" elevation="5" @click="viewWork">
+    <p class="title-text">Information Technology Student</p>
+    <p class="description-text">
+      Welcome to my personal portfolio! I’m a passionate IT student at Caraga State University, focused on building web applications, exploring new technologies, and developing creative projects.
+    </p>
+    
+    <!-- View Work Button -->
+    <v-btn color="primary" class="mt-4 view-work-btn" elevation="5" @click="viewWork">
       View My Work
     </v-btn>
   </v-container>
@@ -33,7 +35,7 @@ export default {
 
 <style scoped>
 .home-container {
-  background: linear-gradient(to bottom, rgba(60, 45, 30, 0.9), rgba(30, 20, 15, 0.9));
+  background: linear-gradient(to bottom right, #3c2d1e, #1e140f);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,22 +43,24 @@ export default {
   align-items: center;
   padding: 20px;
   color: white;
-  backdrop-filter: blur(10px); /* Optional: Adds glassmorphism effect */
+  backdrop-filter: blur(10px);
 }
 
 .circular-container {
   border: 4px solid rgba(255, 255, 255, 0.7);
   padding: 5px;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .circular-container:hover {
-  transform: scale(1.05); /* Slightly enlarges the container on hover */
+  transform: scale(1.1);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .circular-image {
   border-radius: 50%;
-  object-fit: cover; /* Ensures the image fills the container */
+  object-fit: cover;
 }
 
 .name-text {
@@ -65,23 +69,51 @@ export default {
   margin-top: 15px;
   letter-spacing: 1px;
   font-family: 'Poppins', sans-serif;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .title-text {
   font-size: 22px;
-  margin-top: 10px;
+  margin-top: 5px;
   font-style: italic;
+  color: #d3d3d3;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-.v-btn {
+.description-text {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #dcdcdc;
+  animation: fadeIn 1.4s ease-in-out;
+}
+
+.view-work-btn {
   background-color: #007bff;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  transition: background-color 0.3s;
+  padding: 12px 30px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.4);
 }
 
-.v-btn:hover {
+.view-work-btn:hover {
   background-color: #0056b3;
+  box-shadow: 0px 6px 16px rgba(0, 86, 179, 0.5);
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
