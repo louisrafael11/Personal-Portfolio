@@ -1,46 +1,52 @@
 <template>
   <v-container id="about" class="my-5">
     <h1 class="white--text text-center mb-4">About Me</h1>
-    
+
     <v-row>
       <!-- Large Profile Picture on Left Side -->
       <v-col cols="4" class="d-flex justify-center align-center">
         <v-avatar size="250px" class="square-image">
-          <v-img src="@/assets/images/abm.jpg" /> <!-- Replace with your professional picture -->
+          <v-img src="@/assets/images/abm.jpg" />
+          <!-- Replace with your professional picture -->
         </v-avatar>
       </v-col>
 
       <!-- Text Content on Right Side -->
       <v-col cols="8" class="about-content">
         <!-- Professional Summary Section -->
-        <div class="about-info mb-4">
+        <div class="about-info mb-4 about1">
           <h2 class="white--text">Louis Rafael E. Quiñones</h2>
           <p class="white--text">
-            I am a 21-year-old Information Technology student at Caraga State University, passionate about technology and driven to expand my skills in software and web development.
+            I am a 21-year-old Information Technology student at Caraga State University,
+            passionate about technology and driven to expand my skills in software and web
+            development.
           </p>
         </div>
 
         <!-- Values & Interests Section -->
-        <div class="about-info mb-4">
+        <div class="about-info mb-4 about2">
           <h3 class="white--text">Values & Interests</h3>
           <p class="white--text">
-            Dedicated to teamwork, creativity, and ongoing learning. I love exploring new tech and finding innovative ways to solve real-world problems.
+            Dedicated to teamwork, creativity, and ongoing learning. I love exploring new
+            tech and finding innovative ways to solve real-world problems.
           </p>
         </div>
 
         <!-- Background in Performance Section -->
-        <div class="about-info mb-4">
+        <div class="about-info mb-4 about3">
           <h3 class="white--text">Student Performer</h3>
           <p class="white--text">
-            A proud member of the Budjong Choral Ensemble, I have represented Caraga State University in various local and national choral competitions.
+            A proud member of the Budjong Choral Ensemble, I have represented Caraga State
+            University in various local and national choral competitions.
           </p>
         </div>
 
         <!-- Career Goals Section -->
-        <div class="about-info">
+        <div class="about-info about4">
           <h3 class="white--text">Career Goals</h3>
           <p class="white--text">
-            Aspiring to specialize in software and web development, with a vision to contribute to the tech industry through innovative solutions.
+            Aspiring to specialize in software and web development, with a vision to
+            contribute to the tech industry through innovative solutions.
           </p>
         </div>
       </v-col>
@@ -49,8 +55,48 @@
 </template>
 
 <script>
+import ScrollReveal from "scrollreveal";
 export default {
-  name: 'AboutPage',
+  name: "AboutPage",
+  mounted() {
+    // ScrollReveal for top origin
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    sr.reveal("#about", { delay: 100 });
+    sr.reveal(".projecthead", { delay: 100 });
+    sr.reveal(".contacthead", { delay: 100 });
+    sr.reveal(".contactdiv", { delay: 300 });
+
+    // ScrollReveal for left origin
+    const srLeft = ScrollReveal({
+      origin: "left",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srLeft.reveal(".square-image", { delay: 400 });
+    srLeft.reveal(".about3", { delay: 200 });
+
+    // ScrollReveal for right origin
+    const srRight = ScrollReveal({
+      origin: "right",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srRight.reveal(".about2", { delay: 500 });
+    srRight.reveal(".about1", { delay: 400 });
+    srRight.reveal(".about3", { delay: 600 });
+    srRight.reveal(".about4", { delay: 700 });
+    srRight.reveal(".lastpart", { delay: 100 });
+  },
 };
 </script>
 

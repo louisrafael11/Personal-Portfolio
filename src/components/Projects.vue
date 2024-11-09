@@ -20,10 +20,10 @@
             <v-tooltip bottom>
               <template v-slot:activator="{ on }">
                 <p v-on="on" class="frameworks">
-                  <strong>Frameworks:</strong> {{ project.frameworks.join(', ') }}
+                  <strong>Frameworks:</strong> {{ project.frameworks.join(", ") }}
                 </p>
               </template>
-              <span>{{ project.frameworks.join(', ') }}</span>
+              <span>{{ project.frameworks.join(", ") }}</span>
             </v-tooltip>
             <div class="project-links">
               <v-btn
@@ -54,39 +54,79 @@
 </template>
 
 <script>
+import ScrollReveal from "scrollreveal";
 export default {
-  name: 'ProjectsPage',
+  name: "ProjectsPage",
   data() {
     return {
       projects: [
         {
-          title: 'To-Do List',
+          title: "To-Do List",
           description:
-            'A simple yet powerful tool for managing daily tasks efficiently. Built using modern web technologies.',
-          frameworks: ['Vue.js', 'Vuetify'],
-          deploymentLink: 'https://louis-rafael-vue.vercel.app/',
-          githubLink: 'https://github.com/louisrafael11/Vue-Vercel.git',
-          image: require('@/assets/images/todolistpng.png'),
+            "A simple yet powerful tool for managing daily tasks efficiently. Built using modern web technologies.",
+          frameworks: ["Vue.js", "Vuetify"],
+          deploymentLink: "https://louis-rafael-vue.vercel.app/",
+          githubLink: "https://github.com/louisrafael11/Vue-Vercel.git",
+          image: require("@/assets/images/todolistpng.png"),
         },
         {
-          title: 'Weather App',
+          title: "Weather App",
           description:
-            'A responsive, user-friendly application to fetch and display real-time weather data for multiple cities.',
-          frameworks: ['Vue.js', 'Vuetify', 'OpenWeatherMap API'],
-          deploymentLink: 'https://weather-app-louissses-projects.vercel.app/',
-          githubLink: 'https://github.com/louisrafael11/Weather-App.git',
-          image: require('@/assets/images/weather.png'),
+            "A responsive, user-friendly application to fetch and display real-time weather data for multiple cities.",
+          frameworks: ["Vue.js", "Vuetify", "OpenWeatherMap API"],
+          deploymentLink: "https://weather-app-louissses-projects.vercel.app/",
+          githubLink: "https://github.com/louisrafael11/Weather-App.git",
+          image: require("@/assets/images/weather.png"),
         },
         {
-          title: 'Personal Blog',
-          description: 'A simple personal blog to share thoughts and articles.',
-          frameworks: ['HTML', 'CSS', 'JavaScript'],
-          deploymentLink: 'http://127.0.0.1:5501/index.html#',
-          githubLink: 'https://github.com/louisrafael11/Tailwind-Personal-Blog.git',
-          image: require('@/assets/images/profile.jpg'),
+          title: "Personal Blog",
+          description: "A simple personal blog to share thoughts and articles.",
+          frameworks: ["HTML", "CSS", "JavaScript"],
+          deploymentLink: "http://127.0.0.1:5501/index.html#",
+          githubLink: "https://github.com/louisrafael11/Tailwind-Personal-Blog.git",
+          image: require("@/assets/images/profile.jpg"),
         },
       ],
     };
+  },
+  mounted() {
+    // ScrollReveal for top origin
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    sr.reveal("#projects", { delay: 100 });
+    sr.reveal(".projecthead", { delay: 100 });
+    sr.reveal(".contacthead", { delay: 100 });
+    sr.reveal(".contactdiv", { delay: 300 });
+
+    // ScrollReveal for left origin
+    const srLeft = ScrollReveal({
+      origin: "left",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srLeft.reveal(".square-image", { delay: 400 });
+    srLeft.reveal(".about3", { delay: 200 });
+
+    // ScrollReveal for right origin
+    const srRight = ScrollReveal({
+      origin: "right",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srRight.reveal(".about2", { delay: 500 });
+    srRight.reveal(".about1", { delay: 400 });
+    srRight.reveal(".about3", { delay: 600 });
+    srRight.reveal(".about4", { delay: 700 });
+    srRight.reveal(".lastpart", { delay: 100 });
   },
 };
 </script>
