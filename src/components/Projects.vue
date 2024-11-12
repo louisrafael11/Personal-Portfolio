@@ -17,14 +17,15 @@
           </v-card-title>
           <v-card-text class="project-text white--text">
             <p>{{ project.description }}</p>
+            <!-- Fixed Tooltip -->
             <v-tooltip bottom>
-              <template v-slot:activator="{ on }">
-                <p v-on="on" class="frameworks">
-                  <strong>Frameworks:</strong> {{ project.frameworks.join(', ') }}
-                </p>
-              </template>
-              <span>{{ project.frameworks.join(', ') }}</span>
-            </v-tooltip>
+  <template v-slot:activator="{ on, attrs }">
+    <p v-bind="attrs" v-on="on" class="frameworks">
+      <strong>Frameworks:</strong> {{ project.frameworks.join(', ') }}
+    </p>
+  </template>
+</v-tooltip>
+
             <div class="project-links">
               <v-btn
                 :href="project.deploymentLink"

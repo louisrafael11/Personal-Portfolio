@@ -4,7 +4,9 @@
 
     <v-row>
       <!-- Large Profile Picture on Left Side -->
-      <v-col cols="4" class="d-flex justify-center align-center">
+      <v-col
+        :cols="12" :md="4" class="d-flex justify-center align-center mb-4 mb-md-0"
+      >
         <v-avatar size="250px" class="square-image">
           <v-img src="@/assets/images/abm.jpg" />
           <!-- Replace with your professional picture -->
@@ -12,7 +14,7 @@
       </v-col>
 
       <!-- Text Content on Right Side -->
-      <v-col cols="8" class="about-content">
+      <v-col :cols="12" :md="8" class="about-content">
         <!-- Professional Summary Section -->
         <div class="about-info mb-4 about1">
           <h2 class="white--text">Louis Rafael E. Quiñones</h2>
@@ -125,5 +127,23 @@ export default {
 
 .about-info:hover {
   transform: scale(1.02);
+}
+
+/* Adjust the avatar image size on smaller screens */
+@media (max-width: 600px) {
+  .square-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 960px) {
+  .about-info {
+    padding: 15px;
+  }
 }
 </style>
